@@ -7,7 +7,7 @@ package Lab1;
 
 import java.util.Scanner;
 
-/**
+/** ///12312321321321
  *
  * @author MINH
  */

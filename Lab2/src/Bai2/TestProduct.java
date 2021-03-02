@@ -5,6 +5,9 @@
  */
 package Bai2;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.Scanner;
 
 /**
@@ -24,53 +27,83 @@ public class TestProduct {
  }
     public static void main(String[] args) {
         int n = 0;
-        Product a = new Product();
-        Product[] products = null;
+        ArrayList<Product> ProductList = new ArrayList<>();
         do{
             menu();
             System.out.println("Nhap vao lua chon cua ban: ");
             Scanner sc = new Scanner(System.in);
+             n = Integer.parseInt(sc.nextLine());
             switch(n){
                 case 1: {
+                    System.out.println("-----------------");
                     int m;
                     System.out.println("Nhap vao n:");
                     m = Integer.parseInt(sc.nextLine());
-                    products = new Product[m];
-                    for(int i =0;i<m;i++)
-                    {
-                        products[i]= new Product();
-                        products[i].input();
+                    for(int i=0;i<m;i++){
+                        System.out.println("Nhap vao nhan vien thu"+(i+1));
+                        Product pr = new Product();
+                        pr.input();
+                        ProductList.add(pr);
                     }
                 }break;
-                
                 case 2:{
-                    if(products == null){
+                    System.out.println("-----------------");
+                    if(ProductList.size() == 0){
                         System.out.println("ban chua nhap du lieu");
                     }else{
+                        int i=0;
                         System.out.println("Du lieu ban vua nhap la:");
-                        for(int i=0;i<products.length;i++){
-                            System.out.println("Thogn tin hang hoa thu "+(i+1));
-                            products[i].display();
+                        for(Product pr: ProductList){
+                            i++;
+                            System.out.println("Thogn tin hang hoa thu "+i);
+                            pr.display();
                         }
                     }
+                   
                 }break;
                 case 3:{
-                    
-                }break;
-                
-                case 4: {
-                    if(products == null){
-                        System.out.println("Ban chua nhap du lieu!");
-                    }else {
-                        a.sort(products);
-                        System.out.println("Du lieu sau khi sap xep la:");
-                        for(int i=0;i<products.length;i++){
-                            System.out.println("thong tin hang hoa thu "+(i+1));
-                            products[i].display();
+                    System.out.println("-----------------");
+                    float max =0;
+                    for(Product pr: ProductList)
+                    {
+                        if(max < pr.getGia1SP()){
+                            max = pr.getGia1SP();
+                        }
+                    }
+                    System.out.println("Thong tin mat hang co gia cao nhat la: ");
+                    for(Product pr: ProductList){
+                        if(pr.getGia1SP()==max){
+                            pr.display();
                         }
                     }
                 }break;
-                
+                case 4: {
+                    System.out.println("-----------------");
+                    Collections.sort(ProductList, new Comparator<Product>(){
+                       public int compare(Product pr1, Product pr2){
+                           return pr1.getGia1SP()>pr2.getGia1SP()?-1:1;
+                       }
+                    });
+                    System.out.println("Danh sach duoc sap xep giam dan theo gia la:")
+                            int i=1;
+                            for(Product pr: ProductList){
+                                System.out.println("san pham thu:"+i);
+                                pr.output();
+                                i++;
+                            }
+                }break;
+                case 5:{
+                    System.out.println("-----------------");
+                    for(Product pr: ProductList){
+                        if(pr.getTenHH().equals("sua")|| pr.getTenHH().equals("SUA"))
+                            pr.display();
+                    }
+                }break;
+                case 6:
+                break;
+                default: {
+                    System.out.println("khong co lua chon cua ban ");
+                }break;
             }
         }while(n!=6);
     }

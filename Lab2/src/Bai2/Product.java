@@ -83,15 +83,4 @@ public class Product {
     System.out.println("\n Gia ban 1 san pham:"+gia1SP);
  }
        
-        public void sort(Bai2.Product[] b) {
-        for (int i = 0; i < b.length - 1; i++) {
-            for (int j = i + 1; j < b.length; j++) {
-                if (b[i].gia1SP < b[j].gia1SP) {
-                    Bai2.Product tem = b[i];
-                    b[i] = b[j];
-                    b[j] = tem;
-                }
-            }
-        }
-    }
 }
