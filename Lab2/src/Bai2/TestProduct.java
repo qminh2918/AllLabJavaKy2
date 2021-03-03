@@ -77,21 +77,21 @@ public class TestProduct {
                         }
                     }
                 }break;
-                case 4: {
-                    System.out.println("-----------------");
-                    Collections.sort(ProductList, new Comparator<Product>(){
-                       public int compare(Product pr1, Product pr2){
-                           return pr1.getGia1SP()>pr2.getGia1SP()?-1:1;
-                       }
-                    });
-                    System.out.println("Danh sach duoc sap xep giam dan theo gia la:")
-                            int i=1;
-                            for(Product pr: ProductList){
-                                System.out.println("san pham thu:"+i);
-                                pr.output();
-                                i++;
-                            }
-                }break;
+//                case 4: {
+//                    System.out.println("-----------------");
+//                    Collections.sort(ProductList, new Comparator<Product>(){
+//                       public int compare(Product pr1, Product pr2){
+//                           return pr1.getGia1SP()>pr2.getGia1SP()?-1:1;
+//                       }
+//                    });
+//                    System.out.println("Danh sach duoc sap xep giam dan theo gia la:")
+//                            int i=1;
+//                            for(Product pr: ProductList){
+//                                System.out.println("san pham thu:"+i);
+//                                pr.output();
+//                                i++;
+//                            }
+//                }break;
                 case 5:{
                     System.out.println("-----------------");
                     for(Product pr: ProductList){
