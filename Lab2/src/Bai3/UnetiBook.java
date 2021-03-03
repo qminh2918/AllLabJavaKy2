@@ -19,7 +19,8 @@ public class UnetiBook extends Book {
     public UnetiBook() {
     }
 
-    public UnetiBook(String language, int semester) {
+    public UnetiBook(String bookName, String bookAuthor, String producer, int yearPublishing, float price, String language,int semester) {
+        super(bookName, bookAuthor, producer, yearPublishing, price);
         this.language = language;
         this.semester = semester;
     }
