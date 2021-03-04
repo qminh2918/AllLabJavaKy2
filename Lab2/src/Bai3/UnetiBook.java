@@ -214,7 +214,7 @@ public class UnetiBook extends Book {
                     break;
                 }
                 case 5: {
-                    ab.searchNameBook(ab1);
+                    ab.searchNameAuthor(ab1);
                     break;
                 }
                 case 6:
