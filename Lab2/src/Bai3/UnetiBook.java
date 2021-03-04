@@ -16,6 +16,56 @@ public class UnetiBook extends Book {
     private String language;
     private int semester;
 
+    @Override
+    public void setPrice(float price) {
+        super.setPrice(price); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public float getPrice() {
+        return super.getPrice(); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void setYearPublishing(int yearPublishing) {
+        super.setYearPublishing(yearPublishing); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public int getYearPublishing() {
+        return super.getYearPublishing(); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void setProducer(String producer) {
+        super.setProducer(producer); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public String getProducer() {
+        return super.getProducer(); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void setBookAuthor(String bookAuthor) {
+        super.setBookAuthor(bookAuthor); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public String getBookAuthor() {
+        return super.getBookAuthor(); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void setBookName(String bookName) {
+        super.setBookName(bookName); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public String getBookName() {
+        return super.getBookName(); //To change body of generated methods, choose Tools | Templates.
+    }
+
     public UnetiBook() {
     }
 

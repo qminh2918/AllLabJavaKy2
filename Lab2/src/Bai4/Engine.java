@@ -69,10 +69,6 @@ public class Engine {
         this.price = price;
     }
 
-    @Override
-    public String toString() {
-        return "Engine{" + "engineId=" + engineId + ", engineName=" + engineName + ", manufacturer=" + manufacturer + ", yearMaking=" + yearMaking + ", price=" + price + '}';
-    }
     
      public void input() {
         System.out.print("\n Ma may:");

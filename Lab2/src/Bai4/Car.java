@@ -55,5 +55,55 @@ public class Car extends Engine{
         System.out.println("nhap toc do:");
         speed = sc.nextFloat();
     }
+
+    @Override
+    public void setPrice(float price) {
+        super.setPrice(price); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public float getPrice() {
+        return super.getPrice(); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void setYearMaking(int yearMaking) {
+        super.setYearMaking(yearMaking); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public int getYearMaking() {
+        return super.getYearMaking(); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void setManufacturer(String manufacturer) {
+        super.setManufacturer(manufacturer); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public String getManufacturer() {
+        return super.getManufacturer(); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void setEngineName(String engineName) {
+        super.setEngineName(engineName); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public String getEngineName() {
+        return super.getEngineName(); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void setEngineId(String engineId) {
+        super.setEngineId(engineId); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public String getEngineId() {
+        return super.getEngineId(); //To change body of generated methods, choose Tools | Templates.
+    }
     
 }
