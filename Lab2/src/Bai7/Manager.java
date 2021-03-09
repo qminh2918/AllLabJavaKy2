@@ -5,12 +5,26 @@
  */
 package Bai7;
 
+import java.util.ArrayList;
+import java.util.Scanner;
+
 /**
  *
  * @author MINH
  */
 public class Manager {
-    public static void main(String[] args) {
-        
-    }
+//   private ArrayList<Person> persons;
+//   private Scanner  scan;
+//   
+//    public Manager(){
+//        persons = new ArrayList<>();
+//        scan = new Scanner(System.in);
+//    }
+//   
+//    public Student addNewStudent(){
+//        Student s = new Student();
+//        System.out.println("ho ten:");
+//        s.setHoten(scan.nextLine());
+//        
+    //}
 }

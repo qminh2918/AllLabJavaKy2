@@ -69,7 +69,7 @@ public class UnetiBook extends Book {
     public UnetiBook() {
     }
 
-    public UnetiBook(String bookName, String bookAuthor, String producer, int yearPublishing, float price, String language,int semester) {
+    public UnetiBook(String bookName, String bookAuthor, String producer, int yearPublishing, float price, String language, int semester) {
         super(bookName, bookAuthor, producer, yearPublishing, price);
         this.language = language;
         this.semester = semester;
@@ -152,6 +152,7 @@ public class UnetiBook extends Book {
         if (dem == 0) {
             System.out.println("khong co tac gia ban muon tim");
         }
+
     }
 
     void menu() {
@@ -210,13 +211,19 @@ public class UnetiBook extends Book {
                     break;
                 }
                 case 4: {
-                    ab.searchNameBook(ab1);
-                    break;
-                }
+                    if(ab1==null){
+                        System.out.println("ban chua nhap du lieu");
+                    }else{
+                        ab.searchNameBook(ab1);
+                    }      
+                } break;
                 case 5: {
-                    ab.searchNameAuthor(ab1);
-                    break;
-                }
+                   if(ab1==null){
+                        System.out.println("ban chua nhap du lieu");
+                    }else{
+                        ab.searchNameAuthor(ab1);
+                    }      
+                }break;
                 case 6:
                     break;
                 default: {

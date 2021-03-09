@@ -9,6 +9,11 @@ package Bai1;
  *
  * @author MINH
  */
-public class XeMayHaNoi {
+public class XeMayHaNoi extends XeMay{
+    private int n;
+    XeMay[] mangxe;
+
+    public XeMayHaNoi() {
+    }
     
 }
