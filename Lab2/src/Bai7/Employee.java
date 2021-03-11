@@ -11,16 +11,14 @@ package Bai7;
  */
 public class Employee extends Person{
     private double hesoLuong;
-    private double tinhluong;
     private String danhgia;
 
     public Employee() {
     }
 
-    public Employee(double hesoLuong, double tinhluong, String danhgia, String hoten, String diachi) {
+    public Employee(double hesoLuong, String danhgia, String hoten, String diachi) {
         super(hoten, diachi);
         this.hesoLuong = hesoLuong;
-        this.tinhluong = tinhluong;
         this.danhgia = danhgia;
     }
 
@@ -32,12 +30,8 @@ public class Employee extends Person{
         this.hesoLuong = hesoLuong;
     }
 
-    public double getTinhluong() {
-        return tinhluong;
-    }
-
-    public void setTinhluong(double tinhluong) {
-        this.tinhluong = tinhluong;
+    public double TinhLuong(){
+        return this.hesoLuong *12000;
     }
 
     public String getDanhgia() {
@@ -53,7 +47,6 @@ public class Employee extends Person{
         return super.toString(); //To change body of generated methods, choose Tools | Templates.
     }
 
-    @Override
     public void setDiachi(String diachi) {
         super.setDiachi(diachi); //To change body of generated methods, choose Tools | Templates.
     }
@@ -72,5 +65,4 @@ public class Employee extends Person{
     public String getHoten() {
         return super.getHoten(); //To change body of generated methods, choose Tools | Templates.
     }
-    
 }

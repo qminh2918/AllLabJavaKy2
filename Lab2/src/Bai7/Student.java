@@ -12,17 +12,15 @@ package Bai7;
 public class Student extends Person{
     private double mh1;
     private double mh2;
-    private double tinhtb;
     private String danhgia;
 
     public Student() {
     }
 
-    public Student(double mh1, double mh2, double tinhtb, String danhgia, String hoten, String diachi) {
+    public Student(double mh1, double mh2, String danhgia, String hoten, String diachi) {
         super(hoten, diachi);
         this.mh1 = mh1;
         this.mh2 = mh2;
-        this.tinhtb = tinhtb;
         this.danhgia = danhgia;
     }
 
@@ -46,13 +44,8 @@ public class Student extends Person{
     public void setMh2(double mh2) {
         this.mh2 = mh2;
     }
-
-    public double getTinhtb() {
-        return tinhtb;
-    }
-
-    public void setTinhtb(double tinhtb) {
-        this.tinhtb = tinhtb;
+    public double tong(){
+        return (this.mh1 + this.mh2)/2;
     }
 
     public String getDanhgia() {
@@ -82,6 +75,4 @@ public class Student extends Person{
     public String getHoten() {
         return super.getHoten(); //To change body of generated methods, choose Tools | Templates.
     }
-    
-    
 }

@@ -6,6 +6,7 @@
 package Bai6;
 
 import java.util.Date;
+import java.util.Scanner;
 
 
 /**
@@ -13,72 +14,80 @@ import java.util.Date;
  * @author MINH
  */
 public class KhachHang {
-     private String maKH;
-     private String hotenKH;
-     private int soLuong;
-     private double dongia;
-     private double thanhtien;
-     private Date ngayHD;
-
-    public KhachHang() {
+    protected int MaKH, SoLuong;
+    protected double DonGia, ThanhTien;
+    protected String NgayHD, HoTenKH;
+    Scanner in =new Scanner(System.in);
+    protected KhachHang()
+    {
+        this.MaKH=0;
+        this.DonGia=0;
+        this.NgayHD="";
+        this.HoTenKH="";
+        this.SoLuong=0;
     }
-
-    public KhachHang(String maKH, String hotenKH, int soLuong, double dongia, double thanhtien, Date ngayHD) {
-        this.maKH = maKH;
-        this.hotenKH = hotenKH;
-        this.soLuong = soLuong;
-        this.dongia = dongia;
-        this.thanhtien = thanhtien;
-        this.ngayHD = ngayHD;
+    protected KhachHang(int ma, double dgia, String ngay, String hoten, int sl,
+                        double ttien)
+    {
+        this.MaKH=ma;
+        this.DonGia=dgia;
+        this.NgayHD=ngay;
+        this.HoTenKH=hoten;
+        this.SoLuong=sl;
+        this.ThanhTien=ttien;
     }
-
-    public String getMaKH() {
-        return maKH;
+    protected int getMaKH() {
+        return MaKH;
     }
-
-    public void setMaKH(String maKH) {
-        this.maKH = maKH;
+    protected void setMaKH(int maKH) {
+        MaKH = maKH;
     }
-
-    public String getHotenKH() {
-        return hotenKH;
+    protected double getDonGia() {
+        return DonGia;
     }
-
-    public void setHotenKH(String hotenKH) {
-        this.hotenKH = hotenKH;
+    protected void setDonGia(double donGia) {
+        DonGia = donGia;
     }
-
-    public int getSoLuong() {
-        return soLuong;
+    protected String getNgayHD() {
+        return NgayHD;
     }
-
-    public void setSoLuong(int soLuong) {
-        this.soLuong = soLuong;
+    protected void setNgayHD(String ngayHD) {
+        NgayHD = ngayHD;
     }
-
-    public double getDongia() {
-        return dongia;
+    protected String getHoTenKH() {
+        return HoTenKH;
     }
-
-    public void setDongia(double dongia) {
-        this.dongia = dongia;
+    protected void setHoTenKH(String hoTenKH) {
+        HoTenKH = hoTenKH;
     }
-
-    public double getThanhtien() {
-        return thanhtien;
+    protected int getSoLuong() {
+        return SoLuong;
     }
-
-    public void setThanhtien(double thanhtien) {
-        this.thanhtien = thanhtien;
+    protected void setSoLuong(int sl) {
+        SoLuong = sl;
     }
-
-    public Date getNgayHD() {
-        return ngayHD;
+    protected double getThanhTien() {
+        return ThanhTien;
     }
-
-    public void setNgayHD(Date ngayHD) {
-        this.ngayHD = ngayHD;
+    protected void setThanhTien(double thanhTien) {
+        ThanhTien = thanhTien;
     }
-     
-     
+    protected void nhap()
+    {
+        System.out.println("Nhap Ma Khach Hang: ");
+        MaKH = in.nextInt();
+        System.out.println("Ho va Ten Khach Hang: ");
+        HoTenKH = in.next();
+        System.out.println("Ngay Lap Hoa Don: ");
+        NgayHD = in.next();
+        System.out.println("So Luong(KW): ");
+        SoLuong = in.nextInt();
+        System.out.println("Don Gia: ");
+        DonGia = in.nextDouble();
+    }
+    public String toString() {
+        return "[MaKH: " + MaKH + ", HoTenKH: " + HoTenKH + ", NgayHD: " +
+                NgayHD
+                + ", DonGia: " + DonGia + ", SoLuong: " +SoLuong;
+    }
 }

@@ -41,5 +41,5 @@ public class Person {
     public String toString() {
         return "Person{" + "hoten=" + hoten + ", diachi=" + diachi + '}';
     }
-    
+
 }

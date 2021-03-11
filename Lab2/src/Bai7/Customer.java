@@ -62,5 +62,4 @@ public class Customer extends Person{
     public String getHoten() {
         return super.getHoten(); //To change body of generated methods, choose Tools | Templates.
     }
-    
 }
