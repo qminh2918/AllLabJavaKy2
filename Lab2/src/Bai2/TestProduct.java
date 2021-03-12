@@ -55,7 +55,7 @@ public class TestProduct {
                         System.out.println("Du lieu ban vua nhap la:");
                         for(Product pr: ProductList){
                             i++;
-                            System.out.println("Thogn tin hang hoa thu "+i);
+                            System.out.println("Thong tin hang hoa thu "+i);
                             pr.display();
                         }
                     }
