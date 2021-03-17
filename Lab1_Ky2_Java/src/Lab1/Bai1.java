@@ -11,7 +11,7 @@ import java.util.Scanner;
  *
  * @author MINH
  */
-//abc
+//adfd
 public class Bai1 {
     public static void main(String[] args) {
  int a;
