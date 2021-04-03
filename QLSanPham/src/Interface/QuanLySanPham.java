@@ -3,12 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Bai9;
+package Interface;
 
 /**
  *
  * @author kuxut
  */
-interface ObServer {
+public class QuanLySanPham {
     
 }

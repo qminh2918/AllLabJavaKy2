@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package bai9;
+package Bai9;
 
+import Bai9.LogView;
 import java.util.*;
 
 /**
@@ -14,12 +15,12 @@ import java.util.*;
 public class BankAccount extends Observable {
 
     private int balance; //số dư ban đầu
-//Phương thức thiết lập số dư
 
+    //Phương thức thiết lập số dư
     public void setBalance(int balance) {
         this.balance = balance;
         setChanged();
-        notifyObServers(null);
+        notifyObservers(null);
     }
 //Phương thức nạp tiền vào tài khoản
 
@@ -49,32 +50,17 @@ public class BankAccount extends Observable {
         return balance;
     }
 
-//    private void log(String string) {
-//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-//    }
-
+    //Phương thức kiểm tra kết thúc
     private void checkFinished(BankAccountUser user) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        if (user.isOneMore()) {
+            log("\n****\n " + user.getName() + " finished.\\*******");
+            user.setFinished(true);
+        }
     }
 
-    private void notifyObServers(Object object) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-//Phương thức kiểm tra kết thúc
-//private void checkFinished(BankAccountUser user) {
-//if ( user.isOneMore() ) {
-//log("\n****\n " + user.getName() + " finished.\*******");
-//user.setFinished(true);
-//}
-//}
 //Phương thức theo dõi tín hiệu từ tài khoản bằng cách gửi đến tất cả các đối tượng đang quan sát.
-private void log(String message) {
-setChanged();
-notifyObServers(message);
+    private void log(String message) {
+        setChanged();
+        notifyObservers(message);
+    }
 }
-
-    void addobServer(LogView view) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-    }
