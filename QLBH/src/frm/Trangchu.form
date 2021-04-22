@@ -864,11 +864,17 @@
                   <Properties>
                     <Property name="text" type="java.lang.String" value="X&#xf3;a"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="xoakhActionPerformed"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JButton" name="editkh">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="S&#x1eed;a"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="editkhActionPerformed"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JButton" name="resetkh">
                   <Properties>

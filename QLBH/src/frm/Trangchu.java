@@ -457,8 +457,18 @@ public class Trangchu extends javax.swing.JFrame {
         });
 
         xoakh.setText("Xóa");
+        xoakh.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                xoakhActionPerformed(evt);
+            }
+        });
 
         editkh.setText("Sửa");
+        editkh.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                editkhActionPerformed(evt);
+            }
+        });
 
         resetkh.setText("Reset");
         resetkh.addActionListener(new java.awt.event.ActionListener() {
@@ -597,6 +607,26 @@ public class Trangchu extends javax.swing.JFrame {
         tenkh.setText(TableKhachHang.getValueAt(position, 1).toString());
         dthoai.setText(TableKhachHang.getValueAt(position, 2).toString());
     }//GEN-LAST:event_TableKhachHangMouseClicked
+
+    private void xoakhActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_xoakhActionPerformed
+        // TODO add your handling code here:
+        String makh = this.makh.getText().toString();
+        String query ="delete Khachhang where makh="+makh;
+         huyphpk00628_asm_gd2.HUYPHPK00628_ASM_GD2.connection.ExcuteQueryUpdateDB(query);
+         GetDataTableKhachhang();
+    }//GEN-LAST:event_xoakhActionPerformed
+
+    private void editkhActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editkhActionPerformed
+        // TODO add your handling code here:
+        String makh,tenkh,dthoai;
+        makh = this.makh.getText();
+        tenkh = this.tenkh.getText();
+        dthoai = this.dthoai.getText();
+        String query = "update Khachhang set "+ "makh= N'" +makh+"' ,tenkh= '"+tenkh+"' ,dthoai='"+dthoai+ "'where makh="+makh;
+        HUYPHPK00628_ASM_GD2.connection.ExcuteQueryUpdateDB(query); 
+        GetDataTableKhachhang();
+        
+    }//GEN-LAST:event_editkhActionPerformed
 
     public void GetDataTableKhachhang(){
         String query="";
