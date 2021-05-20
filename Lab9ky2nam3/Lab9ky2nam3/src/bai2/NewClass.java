@@ -3,12 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Core;
+package bai2;
 
 /**
  *
- * @author MINH
+ * @author ADMIN
  */
-public class UDPServer_Thread {
+public class NewClass {
     
 }
