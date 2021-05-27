@@ -63,7 +63,7 @@ public class RMI_SERVER extends javax.swing.JFrame {
     private void btStartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btStartActionPerformed
         // TODO add your handling code here:
         try {
-        Registry reg = LocateRegistry.createRegistry(1102);
+        Registry reg = LocateRegistry.createRegistry(1112);
         AccountImpl acct = new AccountImpl();
         reg.bind("JhonAdams ", acct);
         } catch (Exception e) {

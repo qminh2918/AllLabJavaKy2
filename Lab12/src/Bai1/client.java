@@ -36,9 +36,9 @@ public class client extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setText("jLabel1");
+        jLabel1.setText("number");
 
-        jLabel2.setText("jLabel2");
+        jLabel2.setText("square");
 
         send.setText("send");
         send.addActionListener(new java.awt.event.ActionListener() {

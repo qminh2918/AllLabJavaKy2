@@ -48,6 +48,7 @@ public class Lab8Server {
             
             //Đọc thông tin từ socket
             sentence_from_client = inFromClient.readLine();
+            System.out.println("thong tin tu client gui den la: "+sentence_from_client);
             int i = Integer.parseInt(sentence_from_client);
             if(snt(i)){
             sentence_to_client = (i) +" la so nguyen to" + '\n';

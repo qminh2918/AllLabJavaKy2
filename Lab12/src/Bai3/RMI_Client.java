@@ -118,7 +118,7 @@ public class RMI_Client extends javax.swing.JFrame {
         // TODO add your handling code here:
         try {
         // Gọi Server đang lắng nghe tại cổng 1102
-        Registry reg = LocateRegistry.getRegistry("localhost", 1102);
+        Registry reg = LocateRegistry.getRegistry("localhost", 1112);
         // Lấy đối tượng từ xa
         Account ac = (Account) reg.lookup("JhonAdams");
         // Gọi phương thức từ xa

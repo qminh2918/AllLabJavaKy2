@@ -23,7 +23,7 @@ public class Lab8Cli {
             new BufferedReader(new InputStreamReader(System.in));
         //Lấy chuỗi ký tự nhập từ bàn phím
         sentence_to_server = inFromUser.readLine();
-//    
+        //    
         //Tạo socket cho client kết nối đến server qua ID address và port number
         Socket clientSocket = new Socket("127.0.0.1", 6543);
     
@@ -35,9 +35,9 @@ public class Lab8Cli {
         BufferedReader inFromServer =
             new BufferedReader(new
             InputStreamReader(clientSocket.getInputStream()));
-//     
+        //     
         //Gửi chuỗi ký tự tới Server thông qua outputStream đã nối với Socket (ở trên)
-        outToServer.writeBytes(sentence_to_server + '\n');
+        outToServer.writeBytes(sentence_to_server+'\n');
     
         //Đọc tin từ Server thông qua InputSteam đã nối với socket
         sentence_from_server = inFromServer.readLine();
