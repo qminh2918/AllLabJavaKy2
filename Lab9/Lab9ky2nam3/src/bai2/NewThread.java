@@ -9,7 +9,6 @@ package bai2;
  *
  * @author ADMIN
  */
-
 import java.io.*;
 import java.net.*;
 //Khai báo lớp NewThread cho phép tạo ra luồng mới
@@ -44,8 +43,8 @@ class NewThread extends Thread {
 //Tinh dien tich
             double area = 3.14 * r * r;
 //Hien thi
-            System.out.println("Luong thu:" + count, Client:"+addrClient.getHostName()+", ip:"+addrClient.getHostAddress()+",port:"+portClient+",r = "+r+",area:"+area");
-System.out.println(area);
+         System.out.println("Luong thu:" + count+", Client:"+addrClient.getHostName()+", ip:"+addrClient.getHostAddress()+",port:"+portClient+",r = "+r+",area:"+area);
+        outp.println(area);
 //ket thuc luong
             inp.close();
             outp.close();

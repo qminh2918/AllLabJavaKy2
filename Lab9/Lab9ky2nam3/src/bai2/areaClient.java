@@ -10,6 +10,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.Socket;
+
 /**
  *
  * @author ADMIN
@@ -21,13 +22,11 @@ class areaClient {
         BufferedReader inp = null;//luong nhap
         PrintWriter outp = null;//luong xuat
         BufferedReader key = null;//luong nhap tu ban phim
-        String ipServer = "127.0.0.1";//Chuoi dia chi Server
-        int portServer = 3456; //dia chi cong Server
         String r; //Tao socket va ket noi toi Server
-        cl = new Socket(ipServer, portServer);
+        cl = new Socket("127.0.0.1", 3456);
         //tao luong nha/xuatp kieu ky tu cho socket
         inp = new BufferedReader(new InputStreamReader(cl.getInputStream()));
-        outp = new PrintWriter(cl, getOutputStream, true);
+        outp = new PrintWriter(cl.getOutputStream(), true);
 //tao luong nhap tu ban phim
         key = new BufferedReader(new InputStreamReader(System.in));
         //Nhap ban kinh r tu ban phim
