@@ -7,6 +7,8 @@ package Bai5;
 import java.rmi.Remote;
 import java.rmi.RemoteException;
 import java.rmi.NotBoundException;
+import java.rmi.registry.Registry;
+import java.rmi.registry.LocateRegistry;
 
 /**
  *
@@ -30,11 +32,11 @@ public class BankUser extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jTextField1 = new javax.swing.JTextField();
+        txa_printArea = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
+        txtCustomerID = new javax.swing.JTextField();
+        txtAccountID = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -48,9 +50,9 @@ public class BankUser extends javax.swing.JFrame {
 
         jLabel2.setText("Account ID");
 
-        jTextField2.addActionListener(new java.awt.event.ActionListener() {
+        txtCustomerID.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField2ActionPerformed(evt);
+                txtCustomerIDActionPerformed(evt);
             }
         });
 
@@ -69,7 +71,7 @@ public class BankUser extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jTextField1))
+                        .addComponent(txa_printArea))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(391, 391, 391)
                         .addComponent(jButton1))
@@ -80,23 +82,23 @@ public class BankUser extends javax.swing.JFrame {
                             .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jTextField2)
-                            .addComponent(jTextField3, javax.swing.GroupLayout.DEFAULT_SIZE, 294, Short.MAX_VALUE))))
+                            .addComponent(txtCustomerID)
+                            .addComponent(txtAccountID, javax.swing.GroupLayout.DEFAULT_SIZE, 294, Short.MAX_VALUE))))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 272, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txa_printArea, javax.swing.GroupLayout.PREFERRED_SIZE, 272, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(82, 82, 82)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtCustomerID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(29, 29, 29)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtAccountID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 69, Short.MAX_VALUE)
                 .addComponent(jButton1)
                 .addGap(120, 120, 120))
@@ -109,8 +111,8 @@ public class BankUser extends javax.swing.JFrame {
         // TODO add your handling code here:
         try
  {
- m_Registry = LocateRegistry.getRegistry("localhost" ,1234);
- m_bankManager = (BankManager) m_Registry.lookup("BankSystem");
+  Registry m_Registry = LocateRegistry.getRegistry("localhost" ,1234);
+  BankManager m_bankManager = (BankManager) m_Registry.lookup("BankSystem");
  }
  catch (NotBoundException notBoundException) 
      {
@@ -119,20 +121,23 @@ public class BankUser extends javax.swing.JFrame {
  catch (RemoteException remoteException)
  {
  System.out.println("Remote Exception: " + remoteException);
+ }
     }//GEN-LAST:event_formWindowOpened
 
-    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
+    private void txtCustomerIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCustomerIDActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField2ActionPerformed
+    }//GEN-LAST:event_txtCustomerIDActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
+             BankManager m_bankManager = new BankManager;
          try
  {
  if(txtCustomerID.getText().length() > 0)
  {
+
  System.out.println("opps: " + txtCustomerID.getText() + "000");
- Client Client = m_bankManager.getClient(txtCustomerID.getText());
+ Client Client =   m_bankManager.getClient(txtCustomerID.getText());
  txtCustomerID.setText("");
  System.out.println("Currently in the database there \n is this customer with the requested ID: " + Client.getName());
  txa_printArea.setText("Currently in the database there \n is this customer with the requested ID: " + Client.getName());
@@ -192,8 +197,8 @@ else
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
+    private javax.swing.JTextField txa_printArea;
+    private javax.swing.JTextField txtAccountID;
+    private javax.swing.JTextField txtCustomerID;
     // End of variables declaration//GEN-END:variables
 }

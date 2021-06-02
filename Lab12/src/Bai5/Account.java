@@ -21,8 +21,7 @@ public interface Account extends Remote {
  //Chỉnh sửa số dư tài khoản
  public void setBalance(float bal) throws RemoteException;
  //phương thức rút tiền có kiểm tra số dư trước khi rút. Trả về amount
- public long getCash (long amount) throws NoCashAvailableException,
-RemoteException;
+ public long getCash (long amount) throws RemoteException;
  //gửi tiền
  public void deposit(float amount) throws RemoteException;
  //rút tiền

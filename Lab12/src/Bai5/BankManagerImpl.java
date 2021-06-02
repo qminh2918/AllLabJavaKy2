@@ -5,12 +5,18 @@
  */
 package Bai5;
 
-import com.sun.jdi.connect.spi.Connection;
-import java.beans.Statement;
+
+
 import java.rmi.Remote;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
+import java.sql.DriverManager;
+import java.sql.SQLException;
 import java.util.Hashtable;
+import java.sql.Statement;
+import java.sql.Connection;
+import java.util.ArrayList;
+import java.sql.ResultSet;
 
 /**
  *
@@ -24,8 +30,9 @@ public class BankManagerImpl extends UnicastRemoteObject implements
     private Connection conn;
     private Statement s;
     private int CustomerID;
+    
 
-    public BankManagerImpl() throws RemoteException {
+    public BankManagerImpl() throws RemoteException, SQLException {
         super();
         initialize();
     }
@@ -38,6 +45,7 @@ public class BankManagerImpl extends UnicastRemoteObject implements
     public Client getClient(String ClientID) throws RemoteException {
         ClientImpl Client = (ClientImpl) Clients.get(ClientID);
         return Client;
+    }
         //Phương thức rút tiền
     public void deposit(String idAccount, float amount) throws RemoteException {
         Account theAccount = (Account) accounts.get(idAccount);
@@ -46,8 +54,7 @@ public class BankManagerImpl extends UnicastRemoteObject implements
         accounts.put(idAccount, theAccount);
         try {
             Statement s = conn.createStatement();
-            String sql = "Update account Set Balance ='"
-                    + theAccount.getBalance() + "' where idAccount = '" + idAccount + "'";
+            String sql = "Update account Set Balance ='"+ theAccount.getBalance() + "' where idAccount = '" + idAccount + "'";
             s.executeUpdate(sql);
             /// update in the dataabase now
         } catch (Exception e) {
@@ -75,7 +82,7 @@ public class BankManagerImpl extends UnicastRemoteObject implements
     public void getClientsFromDatabase() {
     }
 
-    public void initialize() throws java.rmi.RemoteException {
+    public void initialize() throws java.rmi.RemoteException, SQLException {
         // Create the hashtables
         accounts = new Hashtable(20);
         Clients = new Hashtable(10);
@@ -87,8 +94,7 @@ public class BankManagerImpl extends UnicastRemoteObject implements
     public boolean initializeConnection(String SERVER, String DATABASE, String USER_ID, String PASSWORD) throws ClassNotFoundException,
             SQLException {
         try {
-            String connString = "jdbc:sqlserver://" + SERVER
-                    + ":1433;integratedSecurity=true;databaseName=" + DATABASE;
+            String connString = "jdbc:sqlserver://localhost:64649;integratedSecurity=true;databaseName=Bankrmi;";
             conn = DriverManager.getConnection(connString);
             s = conn.createStatement();
             return true;
@@ -103,7 +109,7 @@ public class BankManagerImpl extends UnicastRemoteObject implements
     public void CreateConnection() {
         if (conn == null)
  try {
-            initializeConnection("localhost", "QLNH", "root", "");
+            initializeConnection("localhost", "Bankrmi", "root", "");
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -125,7 +131,7 @@ public class BankManagerImpl extends UnicastRemoteObject implements
         return ids.get(0).intValue();
     }
 
-    public void getCustomersFromDatabase() {
+    public void getCustomersFromDatabase() throws SQLException {
         try {
             Statement s = conn.createStatement();
             String sql = "Select * from customer";
@@ -137,13 +143,12 @@ public class BankManagerImpl extends UnicastRemoteObject implements
                 Client newClient = new ClientImpl(this, name + " " + surname);
                 Clients.put(String.valueOf(idCustomer), newClient);
             }
-            catch (Exception ex)
- {
- ex.printStackTrace();
- }
         }
- 
-
+            catch (Exception ex)
+            {
+                ex.printStackTrace();
+            }
+    }
     public void getAccountsFromDatabase() {
         System.out.println("------------------------------------");
         System.out.println("Reading accounts from the database:");
@@ -177,6 +182,7 @@ public class BankManagerImpl extends UnicastRemoteObject implements
             s.close();
         } catch (Exception ex) {
             ex.printStackTrace();
-        
+        }
+    }
     
 }

@@ -4,8 +4,14 @@
  * and open the template in the editor.
  */
 package Bai5;
+import java.rmi.AccessException;
+import java.rmi.NotBoundException;
+import java.rmi.RemoteException;
 import java.rmi.registry.Registry;
 import java.rmi.registry.LocateRegistry;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 /**
  *
  * @author MINH
@@ -72,19 +78,32 @@ public class BankSystemServer extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void ConnectServerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConnectServerActionPerformed
-        // TODO add your handling code here:
-        m_bankManager = new BankManagerImpl();
-        if(m_Registry == null)
-        m_Registry = LocateRegistry.createRegistry(1234);
-        m_Registry.rebind("BankSystem", m_bankManager);
-        m_connected = true;
+        try {
+            // TODO add your handling code here:
+            BankManagerImpl m_bankManager = new BankManagerImpl();
+            Registry  m_Registry = LocateRegistry.createRegistry(1234);
+            m_Registry.rebind("BankSystem", m_bankManager);
+//            m_connected = true;
+        } catch (RemoteException ex) {
+            Logger.getLogger(BankSystemServer.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(BankSystemServer.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_ConnectServerActionPerformed
 
     private void DisconnectServerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DisconnectServerActionPerformed
         // TODO add your handling code here:
-        m_bankManager = null;
-        m_Registry.unbind("BankSystem");
-        m_connected = false;
+       BankManagerImpl m_bankManager = null;
+        try {
+            Registry  m_Registry = LocateRegistry.createRegistry(1234);
+            m_Registry.unbind("BankSystem");
+        } catch (RemoteException ex) {
+            Logger.getLogger(BankSystemServer.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (NotBoundException ex) {
+            Logger.getLogger(BankSystemServer.class.getName()).log(Level.SEVERE, null, ex);
+
+        }
+//        m_connected = false;
     }//GEN-LAST:event_DisconnectServerActionPerformed
 
     /**

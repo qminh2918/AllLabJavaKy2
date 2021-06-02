@@ -49,10 +49,10 @@ public class AccountImpl implements Account, Serializable {
         balance = bal;
     }
 
-    public long getCash(long amount) throws NoCashAvailableException,
+    public long getCash(long amount) throws 
             RemoteException {
         if (amount > balance) {
-            throw new NoCashAvailableException();
+            throw new RemoteException();
         }
         balance = balance - amount;
         return amount;
